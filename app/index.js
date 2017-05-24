@@ -147,24 +147,76 @@
 // let a = Calculator.add(5,7);
 // console.log(a);
 
-function Wizard(name, house, pet) {
-  this.name = name;
-  this.house = house;
-  this.pet = pet;
+// function Wizard(name, house, pet) {
+//   this.name = name;
+//   this.house = house;
+//   this.pet = pet;
+//
+//   this.greet = () => {
+//     return `I'm ${this.name} from ${this.house}`;
+//   }
+// }
+//
+// Wizard.prototype.pet_name;
+//
+// Wizard.prototype.info = function(){
+//   return `I have a ${this.pet} named ${this.pet_name}`;
+// }
+//
+// let harry = new Wizard("Harry Potter", "Gryffindor", "Owl");
+// harry.pet_name = 'lebbie';
+// console.log(harry);
+// console.log(harry.greet());
+// console.log(harry.info());
 
-  this.greet = () => {
-    return `I'm ${this.name} from ${this.house}`;
+// let a = new Set();
+// a.add(5);
+// a.add(55);
+// a.add('Srivatsa');
+// a.add({ x: 50, y: 200});
+// console.log(a.size);
+// console.log(a.has(5));
+
+// let numbers = [5,7,8,13,17];
+// let numSet = new Set(numbers);
+// console.log(numSet);
+//
+// for(let element of numSet.values()){
+//   console.log(element);
+// }
+
+// let chars = 'asvdvgyukyewfvlfwgufolfhofch';
+// let chars_arr = chars.split('');
+// console.log(chars_arr);
+// let chars_set = new Set(chars_arr);
+// console.log(chars_set);
+
+//new data structure called maps
+// let a = new Map();
+// let key1 = "string key";
+// let key2 = {a : 'key'};
+//
+// a.set(key1, "return value for a string key");
+// a.set(key2, 'return value for a object key');
+// console.log(a);
+
+// let numArr = [[1,'one'],[2,'two'],[3,'three']];
+// let valMap = new Map(numArr);
+// console.log(valMap);
+//
+// for(let [key, value] of valMap.entries()){
+//   console.log(`${key} points to our ${value}`);
+// }
+
+let string = 'asheuwicheafaabvidzvlvvbu';
+let letters = new Map();
+for(let i = 0; i < string.length; i++){
+  let letter = string[i];
+  if(!letters.has(letter)){
+    letters.set(letter, 1);
+  }else{
+    letters.set(letter, letters.get(letter) + 1);
   }
 }
 
-Wizard.prototype.pet_name;
-
-Wizard.prototype.info = function(){
-  return `I have a ${this.pet} named ${this.pet_name}`;
-}
-
-let harry = new Wizard("Harry Potter", "Gryffindor", "Owl");
-harry.pet_name = 'lebbie';
-console.log(harry);
-console.log(harry.greet());
-console.log(harry.info());
+console.log(letters);
