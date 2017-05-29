@@ -208,15 +208,66 @@
 //   console.log(`${key} points to our ${value}`);
 // }
 
-let string = 'asheuwicheafaabvidzvlvvbu';
-let letters = new Map();
-for(let i = 0; i < string.length; i++){
-  let letter = string[i];
-  if(!letters.has(letter)){
-    letters.set(letter, 1);
-  }else{
-    letters.set(letter, letters.get(letter) + 1);
+// let string = 'asheuwicheafaabvidzvlvvbu';
+// let letters = new Map();
+// for(let i = 0; i < string.length; i++){
+//   let letter = string[i];
+//   if(!letters.has(letter)){
+//     letters.set(letter, 1);
+//   }else{
+//     letters.set(letter, letters.get(letter) + 1);
+//   }
+// }
+//
+// console.log(letters);
+
+//closures
+// let call = () => {
+//   let secret= "Es6 rocks";
+//   let reveal = () => {
+//     console.log(secret);
+//   };
+//   // reveal();
+//   return reveal;
+// }
+// // call();
+// let unveil = call();
+// unveil();
+
+//closures function factories
+// const addSuffix = (x) => {
+//   const concat = (y) => {
+//     return y + x;
+//   }
+//   return concat;
+// }
+//
+// let add_ness = addSuffix("ness");
+// console.log(add_ness);
+// let h = add_ness("happie");
+// console.log(h);
+
+//private methods
+const budget = () => {
+  let balance = 0;
+  let changeBal = (val) => {
+    return balance += val;
+  }
+  const deposit20 = () => changeBal(20);
+  const withdraw20 = () => changeBal(-20);
+  const check = () => balance;
+  return{
+    deposit20: deposit20,
+    withdraw20: withdraw20,
+    check: check
   }
 }
 
-console.log(letters);
+let wallet = budget();
+//console.log(wallet);
+wallet.deposit20();
+wallet.withdraw20();
+wallet.deposit20();
+wallet.deposit20();
+console.log(wallet.check());
+//console.log(wallet.balance);
