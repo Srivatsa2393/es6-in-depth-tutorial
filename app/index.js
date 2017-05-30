@@ -247,27 +247,104 @@
 // let h = add_ness("happie");
 // console.log(h);
 
-//private methods
-const budget = () => {
-  let balance = 0;
-  let changeBal = (val) => {
-    return balance += val;
-  }
-  const deposit20 = () => changeBal(20);
-  const withdraw20 = () => changeBal(-20);
-  const check = () => balance;
-  return{
-    deposit20: deposit20,
-    withdraw20: withdraw20,
-    check: check
-  }
+// //private methods
+// const budget = () => {
+//   let balance = 0;
+//   let changeBal = (val) => {
+//     return balance += val;
+//   }
+//   const deposit20 = () => changeBal(20);
+//   const withdraw20 = () => changeBal(-20);
+//   const check = () => balance;
+//   return{
+//     deposit20: deposit20,
+//     withdraw20: withdraw20,
+//     check: check
+//   }
+// }
+//
+// let wallet = budget();
+// //console.log(wallet);
+// wallet.deposit20();
+// wallet.withdraw20();
+// wallet.deposit20();
+// wallet.deposit20();
+// console.log(wallet.check());
+// //console.log(wallet.balance);
+
+//generators in es6
+// function* letterMaker(){
+//   yield 'a';
+//   yield 'b';
+//   yield 'c';
+// }
+//
+// let letterGen = letterMaker();
+// console.log(letterGen.next().value);
+// console.log(letterGen.next().value);
+// console.log(letterGen.next().value);
+
+// function* countMaker(){
+//   let count = 0;
+//   while(count < 3){
+//     yield count += 1;
+//   }
+// }
+//
+// let countGen = countMaker();
+// console.log(countGen.next().value);
+// console.log(countGen.next().value);
+// console.log(countGen.next().value);
+
+//control flow
+// function* evens(){
+//   let count = 0;
+//   while(true){
+//     count += 2;
+//     let reset = yield count;
+//     if(reset){
+//       count = 0;
+//     }
+//   }
+// }
+//
+// let sequence = evens();
+// console.log(sequence.next().value);
+// console.log(sequence.next().value);
+// console.log(sequence.next().value);
+// console.log(sequence.next().value);
+// console.log(sequence.next().value);
+// console.log(sequence.next(true).value);
+// console.log(sequence.next().value);
+// console.log(sequence.next().value);
+
+//iterator vs generators
+// const arrayIterator = (array) => {
+//   let index = 0;
+//
+//   return{
+//     next: () => {
+//       if(index < array.length){
+//         let next = array[index];
+//         index += 1;
+//         return next;
+//       }
+//     }
+//   }
+// }
+//
+// let it = arrayIterator([1,2,3]);
+// console.log(it.next());
+// console.log(it.next());
+// console.log(it.next());
+// console.log(it.next());
+
+
+function* arrayIterator(){
+  yield* arguments;
 }
 
-let wallet = budget();
-//console.log(wallet);
-wallet.deposit20();
-wallet.withdraw20();
-wallet.deposit20();
-wallet.deposit20();
-console.log(wallet.check());
-//console.log(wallet.balance);
+var it = arrayIterator(1,2,3);
+console.log(it.next().value);
+console.log(it.next().value);
+console.log(it.next().value);
