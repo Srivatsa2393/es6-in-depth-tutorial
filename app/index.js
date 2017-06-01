@@ -340,11 +340,35 @@
 // console.log(it.next());
 
 
-function* arrayIterator(){
-  yield* arguments;
-}
+// function* arrayIterator(){
+//   yield* arguments;
+// }
+//
+// var it = arrayIterator(1,2,3);
+// console.log(it.next().value);
+// console.log(it.next().value);
+// console.log(it.next().value);
 
-var it = arrayIterator(1,2,3);
-console.log(it.next().value);
-console.log(it.next().value);
-console.log(it.next().value);
+//promise
+// let p = new Promise((resolve, reject) => {
+//   //resolve('Resolved promise data');
+//   //reject('Rejected promise data');
+//   setTimeout(() => resolve('Resolved promise data'), 3000);
+// });
+//
+// p.then(response => console.log(response))
+// .catch(error => console.log(error));
+
+//fetch()
+// const root = 'http://jsonplaceholder.typicode.com/posts/1';
+//
+// fetch(root, {method: "GET"} )
+// //.then(response => console.log(response));
+// .then(response => response.json())
+// .then(json => console.log(json));
+
+const root = 'https://www.googleapis.com/books/v1/volumes?q=isbn:0747532699';
+
+fetch(root, {method:"GET"})
+  .then(response => response.json())
+  .then(json => console.log(json));
